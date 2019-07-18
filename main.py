@@ -89,7 +89,7 @@ def fetch_docs(doc_ids):
     docid2path = {p.name[:-10]:p for p in all_path_docs}
     for idx, doc_id in enumerate(doc_ids):
         text = docid2path[doc_id].open('rt', encoding='ascii').read()
-        label = docid2topics[docs_ids]
+        label = docid2topics[doc_id]
         if idx % 100000 == 0:
             logging.info('Fetched %s/%s docs', idx, len(docs_ids))
         yield doc_id, text, label, str(docid2path[doc_id])
