@@ -11,6 +11,3 @@ where `path_to_dir` is absolute path to direction contains for file `rcv1.tar.xz
 - `rcv1_v2.csv`: your main interested data
 - `rcv1_v2_topics_desc.csv`: description about topics
 
-All requirements are:
-- Python3
-- Pandas
