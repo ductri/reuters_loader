@@ -78,7 +78,7 @@ def get_topic_desc():
         lines = i_f.readlines()
     lines = [item[:-1] for item in lines if len(item)>1][2:]
     topic_desc = [item.split('\t') for item in lines]
-    topic_desc = {item[0][1:]:item[1] for item in topic_desc}
+    topic_desc = {item[0]:item[1] for item in topic_desc}
 
     logging.info('There are totally %s topics\n', len(topic_desc))
     return topic_desc
