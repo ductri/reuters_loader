@@ -1,6 +1,6 @@
-- RCV1-v2 dataset are described at [RCV1-v2 info](http://www.ai.mit.edu/projects/jmlr/papers/volume5/lewis04a/lyrl2004_rcv1v2_README.htm)
+- RCV1-v2 dataset is described at [RCV1-v2 info](http://www.ai.mit.edu/projects/jmlr/papers/volume5/lewis04a/lyrl2004_rcv1v2_README.htm)
 - Because it is required signing __Agreement__ to obtain data, this repo contains no data. Personally, it only took me 1 day to be granted access the data. 
-- Unfortunately, the downloaded file are neither in handy format, nor obvious ways to extract desirable info from it, while all I expect is a `csv` files contains something likes `ID, text, labels`. As a result, this script serves that intent.
+- Unfortunately, the downloaded file is neither in handy format, nor there are obvious ways to extract desirable info from it, while all I expect is a `csv` file contains something likes `ID, text, labels`. As a result, this script serves that intent.
 
 Basically, just run:
 ```yaml
