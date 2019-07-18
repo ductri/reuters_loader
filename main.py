@@ -123,10 +123,10 @@ if __name__ == '__main__':
 
     docs_ids = get_doc_ids_v2()
 
-    # docs = list(fetch_docs(docs_ids))
-    #
-    # pd.DataFrame(docs, columns=['id', 'text', 'topics', 'path']).to_csv(str(ROOT/'rcv1_v2.csv'), index=None)
-    # logging.info('Exported data to %s', str(ROOT/'rcv1_v2.csv'))
+    docs = list(fetch_docs(docs_ids))
+
+    pd.DataFrame(docs, columns=['id', 'text', 'topics', 'path']).to_csv(str(ROOT/'rcv1_v2.csv'), index=None)
+    logging.info('Exported data to %s', str(ROOT/'rcv1_v2.csv'))
 
     topic_descriptions = get_topic_desc()
     topic_descriptions = [{'topic_code': k, 'topic_desc': v} for k, v in topic_descriptions.items()]
