@@ -11,4 +11,4 @@ where `path_to_dir` is absolute path to direction contains for file `rcv1.tar.xz
 - `rcv1_v2.csv`: your main interested data
 - `rcv1_v2_topics_desc.csv`: description about topics
 
-The content corresponding to columns `text` are raw text in xml format. It can be parsed easily with `xml.etree.ElementTree.XML(text)`
+The content in column `text` are raw text in xml format. It can be parsed easily with `xml.etree.ElementTree.XML(text)`
