@@ -52,7 +52,7 @@ def might_download_file(url):
 
 def get_doc_ids_v2():
     file = ROOT/'rcv1v2-ids.dat'
-    with file.open('rt', encoding='ascii', newline='\n') as i_f:
+    with file.open('rt', encoding='ascii') as i_f:
         doc_ids = i_f.readlines()
     doc_ids = [item[:-1] for item in doc_ids]
     logging.info('There are %s docs in RCV1-v2\n', len(doc_ids))
@@ -61,7 +61,7 @@ def get_doc_ids_v2():
 
 def get_doc_topics_mapping():
     file = ROOT / 'rcv1-v2.topics.qrels'
-    with file.open('rt', encoding='ascii', newline='\n') as i_f:
+    with file.open('rt', encoding='ascii') as i_f:
         lines = i_f.readlines()
     lines = [item[:-1] for item in lines]
     doc_topics = defaultdict(list)
@@ -74,9 +74,9 @@ def get_doc_topics_mapping():
 
 def get_topic_desc():
     file = ROOT / 'rcv1'/'codes'/'topic_codes.txt'
-    with file.open('rt', encoding='ascii', newline='\n') as i_f:
+    with file.open('rt', encoding='ascii') as i_f:
         lines = i_f.readlines()
-    lines = [item[:-1] for item in lines][2:]
+    lines = [item[:-1] for item in lines if len(item)>1][2:]
     topic_desc = [item.split('\t') for item in lines]
     topic_desc = {item[0][1:]:item[1] for item in topic_desc}
 
@@ -123,10 +123,10 @@ if __name__ == '__main__':
 
     docs_ids = get_doc_ids_v2()
 
-    docs = list(fetch_docs(docs_ids))
-
-    pd.DataFrame(docs, columns=['id', 'text', 'topics', 'path']).to_csv(str(ROOT/'rcv1_v2.csv'), index=None)
-    logging.info('Exported data to %s', str(ROOT/'rcv1_v2.csv'))
+    # docs = list(fetch_docs(docs_ids))
+    #
+    # pd.DataFrame(docs, columns=['id', 'text', 'topics', 'path']).to_csv(str(ROOT/'rcv1_v2.csv'), index=None)
+    # logging.info('Exported data to %s', str(ROOT/'rcv1_v2.csv'))
 
     topic_descriptions = get_topic_desc()
     topic_descriptions = [{'topic_code': k, 'topic_desc': v} for k, v in topic_descriptions.items()]
