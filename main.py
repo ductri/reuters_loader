@@ -6,6 +6,8 @@ import shutil
 from urllib import request
 from collections import defaultdict
 import argparse
+import xml.etree.ElementTree as ET
+import xml
 
 import pandas as pd
 
@@ -88,7 +90,10 @@ def fetch_docs(doc_ids):
 
     docid2path = {p.name[:-10]:p for p in all_path_docs}
     for idx, doc_id in enumerate(doc_ids):
-        text = docid2path[doc_id].open('rt').read()
+        # text = docid2path[doc_id].open('rt', encoding='iso-8859-1').read()
+        tree = ET.parse(str(docid2path[doc_id]))
+        root = tree.getroot()
+        text = xml.etree.ElementTree.tostring(root, encoding='unicode')
         label = docid2topics[doc_id]
         if idx % 100000 == 0:
             logging.info('Fetched %s/%s docs', idx, len(docs_ids))
